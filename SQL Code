@@ -1,0 +1,23 @@
+-- Retrieve all customers' names and phone numbers.--
+Select customerName,phone from customers; 
+
+-- List all product names and their prices--
+select productName,buyPrice from products;
+
+-- Display first and last names of employees--
+Select firstName AS First_Name,lastName AS Last_Name from employees;
+
+-- Show the order numbers and order dates for all orders--
+select orderNumber AS Order_Code ,orderDate AS Date_of_Order from orders;
+
+-- Retrieve the customer names who are located in France--
+select customerName AS Name from customers where country='France';
+
+-- Show the names and job titles of employees who are sales reps.--
+select firstName,lastName,jobTitle from employees where jobTitle='Sales rep';
+
+-- List the product names,quantities,and order numbers for each order detail--
+select products.productName as Products,orderdetails.quantityOrdered as Quantity,orderdetails.orderNumber from orderdetails inner join products on orderdetails.productCode=products.productCode;
+
+-- Display the product name,quantity ordered and the customer name for each order detail--
+select products.productName as Products, orderdetails.quantityOrdered as Quantity,customers.customerName from orders inner join customers on orders.customerNumber=customers.customerNumber inner join orderdetails on orders.orderNumber=orderdetails.orderNumber inner join products on orderdetails.productCode=products.productCode;
